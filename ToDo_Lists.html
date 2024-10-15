@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Lists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <style>
+        body,#input,.add,.del{
+            font-family: "Courgette", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body{
+            background-image: url(https://wallpapercave.com/wp/wp6316440.jpg);
+            background-repeat: no-repeat;
+           
+            background-size:110%;
+        }
+        .container{
+            background-color: rgba(198, 239, 239, 0.513);
+            width: 700px;
+            margin-left:320px;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 80px 80px ;
+        }
+        .heading{
+            color: rgb(255, 247, 247);
+            padding: 0px;
+            font-size: 48px;
+            border-radius: 10px 30px;
+            text-shadow: 5px 5px 10px rgb(0, 0, 0);
+           
+        }
+        #ulblock{
+            background-color: rgba(216, 252, 253, 0.452);    
+            font-size: 24px;
+            border-radius: 20px 20px;
+        }
+        li{
+            padding: 20px;
+            display: flex;
+            flex-direction:row ;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            
+        }
+        #input{
+             height: 10px;
+             width: 400px;
+             padding:10px;
+             padding-left: 20px;
+             font-size: 20px;
+             border-style: hidden;
+             background-color: transparent;
+             border-bottom: black solid 2px;
+            
+            
+        }
+        .add{
+            background-color: rgba(16, 255, 88, 0.471);
+            font-size: 20px;
+            padding: 5px;
+            width: 100px;
+            border-radius: 20px 20px;       
+        }
+        :hover.add{
+            background-color: white;
+            color: rgba(4, 255, 0, 0.795);
+            font-weight: 900;
+        }
+        :hover.del{
+            background-color: white;
+            color: rgb(255, 0, 0);
+            font-weight: 900;
+        }
+        .del{
+            background-color: rgba(255, 0, 0, 0.53);
+            font-size: 20px;
+            padding: 5px;
+            width: 100px;
+            border-radius: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <h1 class="heading"><center>To Do List</center></h1><br>
+    <center><input id="input" placeholder="Enter the remember details">&emsp;&emsp;&emsp;&emsp;&emsp;
+        <button class="add" onclick="add()">Add</button>
+    </center>    
+            <ul id="ulblock">
+                <li>🔲 Go to shoping
+                    <button class="del" onclick="del(event)">Remove</button>
+                </li>
+                
+            </ul>
+    </div>
+</body>
+</html>
+
+<script>
+    // Create a var to get the element ID.
+    var input=document.getElementById("input")
+    var ul_block=document.getElementById("ulblock")
+
+    function add()
+    {
+        // Create a Element using "createElement" Keyword.
+        var li_add=document.createElement("li")
+       
+        // Using innerHTML keyword to add a button tag also.
+        li_add.innerHTML="🔲 "+input.value+"<button class='del' onclick='del(event)'>Remove</button>"//In this button tag using single quatation ('') to mention the "onclick" keyword.
+        // using append to add the elements.
+        ul_block.append(li_add)
+      
+    }
+    // This function mentioned it event object to passing the information.
+    function del(event)
+    {
+        // using remove() keyword to remove the html elements from the page.
+        event.target.parentElement.remove()
+    }
+    
+</script>
